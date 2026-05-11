@@ -293,7 +293,7 @@ if page == "Dashboard":
     c3.metric("Open", int((~requests["status"].isin(["Approved", "Rejected"])).sum()) if not requests.empty else 0)
     c4.metric("Suppliers", len(suppliers))
 
-    st.info("Email mode: SMTP sending is active." if smtp_configured() else "Email mode: preview only. Add SMTP secrets to send real emails.")
+    st.info("Email mode: SMTP sending is active." if smtp_configured() else "Email mode: preview only.")
 
     st.subheader("Requests Awaiting Approval")
     if requests.empty:
