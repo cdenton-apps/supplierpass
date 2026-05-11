@@ -1,0 +1,15 @@
+__pycache__/
+*.pyc
+.env
+
+# Local app data and generated files
+data/*.db
+data/*.sqlite
+data/*.xlsx
+uploads/*
+!uploads/.gitkeep
+!data/.gitkeep
+
+# OS/editor files
+.DS_Store
+.vscode/
