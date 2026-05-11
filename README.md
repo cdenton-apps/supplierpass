@@ -1,33 +1,31 @@
-# SupplierPass v0.3
+# SupplierPass v0.4
 
-Internal Streamlit prototype for supplier compliance tracking, supplier file import, new supplier onboarding, approval routing, and optional email sending.
+Internal Streamlit prototype for supplier compliance tracking, supplier file import, supplier document management, new supplier onboarding, approval routing, and optional email sending.
 
 ## Main apps
 
-There are currently three app entry points:
+There are currently four app entry points:
 
 - `app.py` - original v0.1 supplier/document tracker prototype
 - `app_v02.py` - approval-stage and email workflow prototype
 - `app_v03.py` - combined supplier import, supplier document upload, approvals and email workflow
+- `app_v04.py` - guided process version with clearer step-by-step navigation
 
-For the next test, use `app_v03.py`.
+For the next test, use `app_v04.py`.
 
-## What v0.3 includes
+## What v0.4 improves
 
-- Supplier register
+- Guided process menu instead of scattered screens
+- Home page showing what to do next
+- Clear steps from supplier import through to reporting
 - Supplier CSV upload/import
-- Manual supplier creation
 - Supplier document upload
-- New supplier requests
-- Configurable approval stages by supplier category
-- Approval-stage CSV import
-- Approver name and email per stage
-- Approval route display
-- Approve/reject workflow
-- Automatic move to the next approval stage
-- Email preview and email log
+- Required document rules by category
+- Missing/expired/expiring document action list
+- New supplier request process
+- Approval-stage routing
+- Approver email preview/logging
 - Optional SMTP email sending using Streamlit secrets
-- Convert approved request to supplier register
 - CSV and Excel exports
 
 ## Setup
@@ -36,7 +34,7 @@ Run locally with:
 
 ```bash
 pip install -r requirements.txt
-streamlit run app_v03.py
+streamlit run app_v04.py
 ```
 
 The app creates local folders/files:
@@ -52,13 +50,23 @@ Use:
 
 - Repository: `cdenton-apps/supplierpass`
 - Branch: `main`
-- Main file path: `app_v03.py`
+- Main file path: `app_v04.py`
+
+## Recommended process
+
+1. Import suppliers
+2. Set document rules and approval-stage approvers
+3. Upload supplier documents
+4. Create new supplier requests
+5. Review and approve requests
+6. Chase missing or expiring documents
+7. Export reports
 
 ## Supplier file upload
 
 Go to:
 
-`Supplier Register > Import Supplier File`
+`1. Import Suppliers > Import supplier file`
 
 Suggested CSV columns:
 
@@ -73,7 +81,7 @@ The import screen lets you map your own column names, so the file does not have 
 
 Go to:
 
-`Approval Stages > Import Approval Stages from CSV`
+`2. Set Rules & Approvers > Approval stages > Bulk import approval stages`
 
 Expected columns:
 
@@ -86,7 +94,7 @@ Packaging,Finance Review,Finance,finance@example.com,3
 
 ## Email sending
 
-By default, v0.3 previews and logs emails only. To send real emails, add SMTP secrets in Streamlit Community Cloud under:
+By default, v0.4 previews and logs emails only. To send real emails, add SMTP secrets in Streamlit Community Cloud under:
 
 `App > Settings > Secrets`
 
