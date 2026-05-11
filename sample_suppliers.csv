@@ -1,0 +1,6 @@
+SupplierCode,SupplierName,SupplierEmail,Category,Owner,ApprovalStatus,Notes
+SUP001,ABC Transport Ltd,accounts@abctransport.example,Transport,Connor,Approved,Main haulage supplier
+SUP002,Yorkshire Board Supplies,quality@yorkshireboard.example,Raw Material,Connor,Approved,Board supplier
+SUP003,Fast Fix Maintenance,info@fastfix.example,Contractor,Maintenance,Pending,Site contractor
+SUP004,LabelCo Print Ltd,hello@labelco.example,Packaging,Procurement,Approved,Label supplier
+SUP005,CloudOps Software,security@cloudops.example,IT / Software,IT,On Hold,Pending cyber review
