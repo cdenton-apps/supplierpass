@@ -1,32 +1,42 @@
-# SupplierPass v0.4
+# SupplierPass v0.5
 
-Internal Streamlit prototype for supplier compliance tracking, supplier file import, supplier document management, new supplier onboarding, approval routing, and optional email sending.
+Commercial-style Streamlit prototype for supplier compliance tracking, supplier document management, new supplier onboarding, approval routing, email chasing, health scoring, and audit exports.
 
-## Main apps
+## Recommended app
 
-There are currently four app entry points:
+Use:
+
+```text
+app_v05.py
+```
+
+Older prototype files remain in the repo for reference:
 
 - `app.py` - original v0.1 supplier/document tracker prototype
 - `app_v02.py` - approval-stage and email workflow prototype
 - `app_v03.py` - combined supplier import, supplier document upload, approvals and email workflow
-- `app_v04.py` - guided process version with clearer step-by-step navigation
+- `app_v04.py` - guided process version
+- `app_v05.py` - commercial prototype with improved UI and broader functionality
 
-For the next test, use `app_v04.py`.
+## What v0.5 adds
 
-## What v0.4 improves
-
-- Guided process menu instead of scattered screens
-- Home page showing what to do next
-- Clear steps from supplier import through to reporting
-- Supplier CSV upload/import
-- Supplier document upload
+- Commercial-style Command Centre dashboard
+- Cleaner product-style navigation
+- Supplier health score
+- Supplier risk/spend/criticality fields
+- Supplier register import and filtering
+- Supplier profile editing
 - Required document rules by category
+- Supplier document upload and expiry tracking
 - Missing/expired/expiring document action list
-- New supplier request process
-- Approval-stage routing
-- Approver email preview/logging
-- Optional SMTP email sending using Streamlit secrets
-- CSV and Excel exports
+- Supplier document chase email preview/logging
+- New supplier onboarding workflow
+- Approval route management by supplier category
+- Approval-stage emails
+- Email log
+- Audit-ready Excel export
+- CSV compliance export
+- Safe database migrations from earlier prototype versions
 
 ## Setup
 
@@ -34,7 +44,7 @@ Run locally with:
 
 ```bash
 pip install -r requirements.txt
-streamlit run app_v04.py
+streamlit run app_v05.py
 ```
 
 The app creates local folders/files:
@@ -50,51 +60,37 @@ Use:
 
 - Repository: `cdenton-apps/supplierpass`
 - Branch: `main`
-- Main file path: `app_v04.py`
+- Main file path: `app_v05.py`
 
-## Recommended process
+## Suggested workflow
 
-1. Import suppliers
-2. Set document rules and approval-stage approvers
-3. Upload supplier documents
-4. Create new supplier requests
-5. Review and approve requests
-6. Chase missing or expiring documents
-7. Export reports
+1. Open the Command Centre
+2. Import suppliers from CSV
+3. Set document rules and approval routes
+4. Upload supplier documents
+5. Review the compliance action list
+6. Create new supplier onboarding requests
+7. Approve/reject supplier requests
+8. Export the audit pack
 
 ## Supplier file upload
 
 Go to:
 
-`1. Import Suppliers > Import supplier file`
+`Suppliers > Import`
 
 Suggested CSV columns:
 
 ```csv
-SupplierCode,SupplierName,SupplierEmail,Category,Owner,ApprovalStatus,Notes
-SUP001,ABC Transport Ltd,accounts@example.com,Transport,Connor,Approved,Main haulage supplier
+SupplierCode,SupplierName,SupplierEmail,Category,Owner,ApprovalStatus,AnnualSpend,Notes
+SUP001,ABC Transport Ltd,accounts@example.com,Transport,Connor,Approved,12000,Main haulage supplier
 ```
 
-The import screen lets you map your own column names, so the file does not have to match exactly.
-
-## Approval-stage import
-
-Go to:
-
-`2. Set Rules & Approvers > Approval stages > Bulk import approval stages`
-
-Expected columns:
-
-```csv
-Category,StageName,ApproverName,ApproverEmail,Order
-Packaging,Procurement Review,Connor,connor@example.com,1
-Packaging,Quality Review,Quality Manager,quality@example.com,2
-Packaging,Finance Review,Finance,finance@example.com,3
-```
+The import screen lets you map your own column names, so your file does not have to match exactly.
 
 ## Email sending
 
-By default, v0.4 previews and logs emails only. To send real emails, add SMTP secrets in Streamlit Community Cloud under:
+By default, v0.5 previews and logs emails only. To send real emails, add SMTP secrets in Streamlit Community Cloud under:
 
 `App > Settings > Secrets`
 
@@ -113,8 +109,19 @@ Do not commit real passwords or API keys to GitHub.
 
 Many Microsoft 365 tenants block SMTP authentication. If SMTP does not work, keep preview/log mode for the prototype and later move to Microsoft Graph, Postmark, or SendGrid.
 
-## Important prototype note
+## Important commercialisation note
 
-This is an internal prototype, not a production SaaS product.
+This is a commercial-style prototype, not yet a production SaaS product.
 
-Do not upload confidential supplier documents, bank details, live contracts, or sensitive company data to a public deployment. Use sample data until authentication, secure storage, tenant separation and proper access controls are added.
+Before selling or hosting for customers, add:
+
+- authentication and user accounts
+- role-based permissions
+- tenant/company separation
+- secure cloud file storage
+- database backups
+- production database server
+- audit log hardening
+- encrypted secrets management
+- licensing/subscription controls
+- terms/privacy/security documentation
