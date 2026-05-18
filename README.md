@@ -1,25 +1,27 @@
-# SupplierPass v0.11
+# SupplierPass v0.12
 
-Stable Streamlit prototype for supplier onboarding approvals, supplier compliance, document upload, document processing, supplier readiness, evidence gaps, issue logs, timeline history and audit exports.
+Stable Streamlit prototype for status-aware supplier onboarding approvals, supplier compliance, document upload, document processing, supplier readiness, evidence gaps, timeline history and audit exports.
 
 ## Recommended app
 
 Use:
 
 ```text
-app_v11.py
+app_v12.py
 ```
 
-`app_v11.py` is the current recommended version because it keeps the stable document workflow from v0.10 and adds a clear onboarding Approval Queue.
+`app_v12.py` is the current recommended version because it fixes the approval queue so actions depend on request status.
 
-## What v0.11 improves
+## What v0.12 improves
 
-- Adds a dedicated `Approval Queue`
-- Onboarding requests can now be submitted, approved, rejected and converted to suppliers
-- Converted requests create an approved supplier record
-- Request decision notes, approver name and approval timestamp are stored
-- Today screen shows onboarding requests needing action
-- Keeps the safer document processing workflow from v0.10
+- Approval buttons are now status-aware
+- Draft requests only show `Submit for approval`
+- Awaiting Approval requests show `Approve & Create Supplier` and `Reject`
+- Approval automatically creates the supplier record
+- No separate confusing `Convert to supplier` step after approval
+- Converted requests cannot be approved again
+- Rejected requests cannot be accidentally converted
+- Keeps the safer document processing workflow from v0.10/v0.11
 - Old/orphaned documents show as Unlinked document instead of crashing
 - Audit pack export includes onboarding requests
 
@@ -29,7 +31,7 @@ Run locally with:
 
 ```bash
 pip install -r requirements.txt
-streamlit run app_v11.py
+streamlit run app_v12.py
 ```
 
 The app creates local folders/files:
@@ -45,7 +47,7 @@ Use:
 
 - Repository: `cdenton-apps/supplierpass`
 - Branch: `main`
-- Main file path: `app_v11.py`
+- Main file path: `app_v12.py`
 
 ## Onboarding approval process
 
@@ -53,9 +55,9 @@ Use:
 2. Create a new supplier request
 3. Tick `Submit for approval now`, or leave as draft
 4. Go to `Approval Queue`
-5. Select the request
-6. Click `Submit for approval`, `Approve`, `Reject`, or `Convert to supplier`
-7. Once converted, the supplier appears in the Supplier Register
+5. If Draft, click `Submit for approval`
+6. If Awaiting Approval, click `Approve & Create Supplier` or `Reject`
+7. Once approved, the supplier appears automatically in the Supplier Register
 
 ## Document process
 
