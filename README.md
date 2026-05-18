@@ -1,13 +1,13 @@
-# SupplierPass v0.7
+# SupplierPass v0.8
 
-Commercial-polish Streamlit prototype for supplier compliance, role-based views, audit readiness, supplier review cycles, issue logs, timeline history, demo mode, import profiles, email templates and audit exports.
+Stable commercial-polish Streamlit prototype for supplier compliance, role-based views, audit readiness, supplier review cycles, issue logs, timeline history, demo mode, import profiles, email templates and audit exports.
 
 ## Recommended app
 
 Use:
 
 ```text
-app_v07.py
+app_v08.py
 ```
 
 Older prototype files remain in the repo for reference:
@@ -19,24 +19,24 @@ Older prototype files remain in the repo for reference:
 - `app_v05.py` - commercial prototype
 - `app_v06.py` - commercial-plus prototype with pre-approval and stronger business controls
 - `app_v07.py` - commercial polish prototype with user-friendly dashboards and demo/sales features
+- `app_v08.py` - stable commercial polish version fixing Streamlit rendering issues
 
-## What v0.7 adds
+## What v0.8 includes
 
 - Today screen
 - Role-based views for Management, Procurement, Quality, Finance and Admin
 - Audit Readiness Score
 - Value Tracker
-- Supplier segmentation/readiness improvements
+- Supplier readiness and Can I Buy? explanation
 - Supplier Review Cycle
 - Supplier Issue Log
 - Supplier Timeline
 - Demo Mode / load demo data
 - Implementation Checklist
-- Import profiles for Generic CSV, Sage 200, Sage 50, Business Central, Xero
+- Import profiles for Generic CSV, Sage 200, Sage 50, Business Central and Xero
 - Email Template Library
-- Can I Buy? explanation panel
 - Supplier Portal Preview
-- Cleaner commercial-style navigation
+- Audit pack export
 
 ## Setup
 
@@ -44,7 +44,7 @@ Run locally with:
 
 ```bash
 pip install -r requirements.txt
-streamlit run app_v07.py
+streamlit run app_v08.py
 ```
 
 The app creates local folders/files:
@@ -60,7 +60,7 @@ Use:
 
 - Repository: `cdenton-apps/supplierpass`
 - Branch: `main`
-- Main file path: `app_v07.py`
+- Main file path: `app_v08.py`
 
 ## Suggested demo flow
 
@@ -74,22 +74,6 @@ Use:
 8. Review Evidence Gaps
 9. Check Audit Readiness and Value Tracker
 10. Export the audit pack
-
-## Supplier file upload
-
-Go to:
-
-`Suppliers > Import`
-
-Available import profiles:
-
-- Generic CSV
-- Sage 200 Supplier Export
-- Sage 50 Supplier Export
-- Business Central Vendor Export
-- Xero Contacts Export
-
-The import screen pre-maps likely columns but still lets you override every mapping.
 
 ## Important commercialisation note
 
